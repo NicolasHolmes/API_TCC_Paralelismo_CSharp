@@ -24,5 +24,12 @@ namespace APITCC.Repositories
         {
             return await _context.Products.FindAsync(id);
         }
+
+        public async Task<int> Insert(ProductRequest product)
+        {
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+            return product.Id; // Retorna o ID do produto recém-inserido
+        }
     }
 }

@@ -1,12 +1,12 @@
-﻿using System;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace APITCC.Models
 {
+    [Table("Produtos")]
     public class ProductRequest
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
-        public string Price { get; set; }
-        public DateTime? MaturityDate { get; set; }
+        public int StockQuantity { get; set; }
     }
 }
