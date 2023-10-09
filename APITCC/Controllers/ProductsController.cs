@@ -29,5 +29,12 @@ namespace MinhaApi.Controllers
         {
             return await _productRepository.Get(id);
         }
+
+        [HttpPost]
+        public async Task<ActionResult<ProductRequest>> CreateProductsAsync([FromBody] ProductRequest product)
+        {
+            var newProduct = await _productRepository.Create(product);
+            return newProduct;
+        }
     }
 }

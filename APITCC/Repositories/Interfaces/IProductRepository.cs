@@ -9,5 +9,6 @@ namespace APITCC.Repositories.Interfaces
     {
         Task<IEnumerable<ProductRequest>> Get();
         Task<ProductRequest> Get(int id);
+        Task<ProductRequest> Create(ProductRequest product);
     }
 }
