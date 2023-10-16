@@ -10,5 +10,6 @@ namespace APITCC.Models.SQLEntity
         }
 
         public DbSet<ProductRequest> Products { get; set; }
+        public DbSet<ProductDetailRequest> ProductDetail { get; set; }
     }
 }

@@ -24,16 +24,9 @@ namespace MinhaApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ProductRequest>> GetProductsAsync(int id)
+        public async Task<ActionResult<ProductDetailRequest>> GetProductsAsync(int id)
         {
             return await _productRepository.Get(id);
-        }
-
-        [HttpPost]
-        public async Task<ActionResult<ProductRequest>> CreateProductsAsync([FromBody] ProductRequest product)
-        {
-            var newProduct = await _productRepository.Create(product);
-            return newProduct;
         }
     }
 }

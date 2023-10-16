@@ -20,16 +20,9 @@ namespace APITCC.Repositories
             return await _context.Products.ToListAsync();
         }
 
-        public async Task<ProductRequest> Get(int id)
+        public async Task<ProductDetailRequest> Get(int id)
         {
-            return await _context.Products.FindAsync(id);
-        }
-
-        public async Task<ProductRequest> Create(ProductRequest product)
-        {
-            _context.Products.Add(product);
-            await _context.SaveChangesAsync();
-            return product;
+            return await _context.ProductDetail.FindAsync(id);
         }
     }
 }

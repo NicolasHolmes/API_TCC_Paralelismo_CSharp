@@ -7,7 +7,6 @@ namespace APITCC.Repositories.Interfaces
     public interface IProductRepository
     {
         Task<IEnumerable<ProductRequest>> Get();
-        Task<ProductRequest> Get(int id);
-        Task<ProductRequest> Create(ProductRequest product);
+        Task<ProductDetailRequest> Get(int id);
     }
 }
