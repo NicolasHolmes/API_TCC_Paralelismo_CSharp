@@ -17,16 +17,22 @@ namespace MinhaApi.Controllers
             _productRepository = productRepository;
         }
 
-        [HttpGet]
+        [HttpGet("GetProducts")]
         public async Task<IEnumerable<ProductRequest>> GetProductsAsync()
         {
-            return await _productRepository.Get();
+            return await _productRepository.GetListOfProducts();
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductDetailRequest>> GetProductsAsync(int id)
         {
-            return await _productRepository.Get(id);
+            return await _productRepository.GetProductDetail(id);
+        }
+
+        [HttpGet("GetRequestsQuantity")]
+        public async Task<int> GetRequestsQuantityAsync()
+        {
+            return await _productRepository.GetRequestsQuantityAsync();
         }
     }
 }

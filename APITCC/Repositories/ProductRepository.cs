@@ -3,7 +3,6 @@ using APITCC.Models.SQLEntity;
 using APITCC.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace APITCC.Repositories
@@ -15,14 +14,19 @@ namespace APITCC.Repositories
         {
             _context = context;
         }
-        public async Task<IEnumerable<ProductRequest>> Get()
+        public async Task<IEnumerable<ProductRequest>> GetListOfProducts()
         {
             return await _context.Products.ToListAsync();
         }
 
-        public async Task<ProductDetailRequest> Get(int id)
+        public async Task<ProductDetailRequest> GetProductDetail(int id)
         {
             return await _context.ProductDetail.FindAsync(id);
+        }
+
+        public async Task<int> GetRequestsQuantityAsync()
+        {
+            return await _context.ProductDetail.CountAsync();
         }
     }
 }
